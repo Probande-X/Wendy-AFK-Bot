@@ -903,3 +903,10 @@ console.log(`Auto-Reconnect: ${config.utils['auto-reconnect'] ? 'Enabled' : 'Dis
 console.log('='.repeat(50));
 
 createBot();
+// Increase connection timeout from 150s to 300s
+connectionTimeoutId = setTimeout(() => {
+  if (!botState.connected) {
+    addLog("[Bot] Connection timeout - no spawn received");
+    // ...
+  }
+}, 300000); // 5 minutes
